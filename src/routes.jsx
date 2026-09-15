@@ -16,12 +16,30 @@ const router = createBrowserRouter([
       </div>
     ),
     children: [
-      { index: true, element: <Home /> },
-      { path: "products", element: <Products /> },
-      { path: "users", element: <Users /> },
-      { path: "tickets", element: <Tickets /> },
-      { path: "tickets/:ticketId", element: <TicketDetails /> },
-      { path: "comments", element: <Comments /> },
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "products",
+        element: <Products />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+      },
+      {
+        path: "tickets",
+        element: <Tickets />,
+      },
+      {
+        path: "tickets/:ticketId",
+        element: <TicketDetails />,
+      },
+      {
+        path: "comments",
+        element: <Comments />,
+      },
     ],
   },
 ]);

@@ -15,36 +15,32 @@ import ChangeVisibilityIcon from "./components/ChangeVisibilityIcon";
 import EditProductIcon from "./components/EditProductIcon";
 
 const ProductsTable = () => {
+  const [allProducts, setAllProducts] = useState(() =>
+    products.map((product) => ({ ...product })),
+  );
   const [lastProducts, setLastProducts] = useState([]);
-  // const [newProduct, setNewProduct] = useState({
-  //   id: products.filter((product) => Math.max(product.id))[0] + 1,
-  //   title: "",
-  //   description: "",
-  //   price: 0,
-  //   img: "/images/product-img.png",
-  //   isPublished: false,
-  //   entity: 0,
-  // });
 
   const formatPrice = (price) =>
     `${Number(price || 0).toLocaleString("fa-IR")} تومان`;
 
   const removeProduct = (id) => {
-    const newProducts = lastProducts.filter((product) => product.id !== id);
-    setLastProducts(newProducts);
+    setAllProducts((prevProducts) =>
+      prevProducts.filter((product) => product.id !== id),
+    );
   };
 
   const changeProductVisibility = (id) => {
-    const newProducts = lastProducts.map((product) => {
-      return product.id === id
-        ? { ...product, isPublished: !product.isPublished }
-        : { ...product };
-    });
-    setLastProducts(newProducts);
+    setAllProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === id
+          ? { ...product, isPublished: !product.isPublished }
+          : product,
+      ),
+    );
   };
 
   const editProduct = (updatedProduct) => {
-    setLastProducts((prevProducts) =>
+    setAllProducts((prevProducts) =>
       prevProducts.map((product) =>
         product.id === updatedProduct.id
           ? { ...product, ...updatedProduct }
@@ -67,7 +63,7 @@ const ProductsTable = () => {
           title: "لیست محصولات",
         }}
         pagination={{
-          items: products,
+          items: allProducts,
           setItems: setLastProducts,
           itemsPerPage: 5,
         }}

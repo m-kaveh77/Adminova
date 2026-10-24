@@ -26,7 +26,11 @@ const ChangeVisibilityIcon = ({ product, handler, className }) => {
             {" "}
             <strong>{product.isPublished ? "خصوصی" : "عمومی"}</strong>
           </span>{" "}
-          کردن این محصول اطمینان دارید؟
+          کردن{" "}
+          <kbd className="px-2 py-1 rounded-md bg-red-500/15 font-black! text-red-500">
+            {product.title}
+          </kbd>{" "}
+          اطمینان دارید؟
         </p>
       </div>
     </Modal>

@@ -23,7 +23,7 @@ const Pagination = ({ items = [], setItems, itemsPerPage = 5 }) => {
     const startIndex = (currentPage - 1) * safeItemsPerPage;
     const endIndex = startIndex + safeItemsPerPage;
 
-    const paginatedItems = [...safeItems].reverse().slice(startIndex, endIndex);
+    const paginatedItems = [...safeItems].slice(startIndex, endIndex);
 
     setItems?.(paginatedItems);
   }, [currentPage, safeItems, safeItemsPerPage, pagesCount, setItems]);

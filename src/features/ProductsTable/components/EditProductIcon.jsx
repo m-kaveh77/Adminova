@@ -26,7 +26,6 @@ const EditProductIcon = ({ product, handler, className = "" }) => {
       type="button"
       aria-label={`ویرایش ${product.title}`}
       title="ویرایش محصول"
-      className="flex size-9 items-center justify-center rounded-lg text-gray-500 transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 active:scale-90"
     >
       <FiEdit2 className={className} size={17} />
     </button>

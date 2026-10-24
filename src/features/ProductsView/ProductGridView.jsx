@@ -5,9 +5,12 @@ const ProductGridView = ({
   products = [],
   paginatedProducts = [],
   setProducts,
+  removeProduct,
+  changeProductVisibility,
+  editProduct,
 }) => {
   return (
-    <div>
+    <div className="mb-20">
       <div
         className="
           grid grid-cols-1 gap-5
@@ -18,11 +21,17 @@ const ProductGridView = ({
         "
       >
         {paginatedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            removeProduct={removeProduct}
+            changeProductVisibility={changeProductVisibility}
+            editProduct={editProduct}
+          />
         ))}
       </div>
 
-      <Pagination data={products} itemsPerPage={5} onPageChange={setProducts} />
+      <Pagination items={products} setItems={setProducts} itemsPerPage={5} />
     </div>
   );
 };

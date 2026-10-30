@@ -9,11 +9,27 @@ export const productsTableHeadRow = [
 export const productsAllTableHeadRow = [
   "شناسه",
   "عنوان محصول",
-  "تصویر",
-  "وضعیت نمایش",
   "قیمت",
   "موجودی",
+  "وضعیت نمایش",
   "",
+];
+
+export const latestProductsTableColumns = [
+  "70px",
+  "minmax(180px, 2fr)",
+  "110px",
+  "minmax(130px, 1.2fr)",
+  "115px",
+];
+
+export const productsTableColumns = [
+  "50px", // شناسه
+  "minmax(100px, 1.5fr)", // عنوان محصول
+  "minmax(100px, 1.5fr)", // وضعیت نمایش
+  "minmax(200px, 2fr)", // قیمت
+  "minmax(150px, 1fr)", // موجودی
+  "200px", // عملیات
 ];
 
 export const tableGridColumns =

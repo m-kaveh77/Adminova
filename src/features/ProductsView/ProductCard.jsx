@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FiEdit2, FiEye, FiEyeOff, FiPackage, FiTrash2 } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiPackage } from "react-icons/fi";
 import RemoveProductIcon from "../ProductsTable/components/RemoveProductIcon";
 import ChangeVisibilityIcon from "../ProductsTable/components/ChangeVisibilityIcon";
 import EditProductIcon from "../ProductsTable/components/EditProductIcon";

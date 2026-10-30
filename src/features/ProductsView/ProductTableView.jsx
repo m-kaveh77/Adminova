@@ -10,9 +10,10 @@ import TableCell from "../../components/common/Table/elements/TableCell";
 import RemoveProductIcon from "../ProductsTable/components/RemoveProductIcon";
 import ChangeVisibilityIcon from "../ProductsTable/components/ChangeVisibilityIcon";
 import EditProductIcon from "../ProductsTable/components/EditProductIcon";
-import { productsAllTableHeadRow } from "../../data/products";
-
-const columns = ["شناسه", "عنوان محصول", "وضعیت نمایش", "قیمت", "عملیات"];
+import {
+  productsAllTableHeadRow,
+  productsTableColumns,
+} from "../../data/products";
 
 const formatPrice = (price) =>
   `${Number(price || 0).toLocaleString("fa-IR")} تومان`;
@@ -30,6 +31,7 @@ const ProductTableView = ({
       header={{
         title: "لیست محصولات",
       }}
+      columns={productsTableColumns}
       pagination={{
         items: products,
         setItems: setProducts,
@@ -75,6 +77,14 @@ const ProductTableView = ({
               </TableCell>
 
               <TableCell>
+                <span className="whitespace-nowrap font-semibold text-gray-800">
+                  {formatPrice(product.price)}
+                </span>
+              </TableCell>
+
+              <TableCell>{product.entity ?? 0}</TableCell>
+
+              <TableCell>
                 <span
                   className={
                     product.isPublished
@@ -92,14 +102,6 @@ const ProductTableView = ({
                   {product.isPublished ? "عمومی" : "خصوصی"}
                 </span>
               </TableCell>
-
-              <TableCell>
-                <span className="whitespace-nowrap font-semibold text-gray-800">
-                  {formatPrice(product.price)}
-                </span>
-              </TableCell>
-
-              <TableCell>{product.entity ?? 0}</TableCell>
 
               <TableCell>
                 <div className="flex items-center justify-start gap-3 whitespace-nowrap">

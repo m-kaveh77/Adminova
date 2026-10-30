@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { FiPackage } from "react-icons/fi";
 
-import { products, productsTableHeadRow } from "../../data/products";
+import {
+  products,
+  productsTableHeadRow,
+  latestProductsTableColumns,
+} from "../../data/products";
 
 import Table from "../../components/common/Table/Table";
 import TableHead from "../../components/common/Table/elements/TableHead";
@@ -62,6 +66,7 @@ const ProductsTable = () => {
         header={{
           title: "لیست محصولات",
         }}
+        columns={latestProductsTableColumns}
         pagination={{
           items: allProducts,
           setItems: setLastProducts,
@@ -78,13 +83,13 @@ const ProductsTable = () => {
           {lastProducts.length > 0 ? (
             lastProducts.map((product) => (
               <TableRow key={product.id}>
-                <TableCell className="max-w-16">
+                <TableCell>
                   <span className="font-medium text-gray-500">
                     {product.id}
                   </span>
                 </TableCell>
 
-                <TableCell className="min-w-48">
+                <TableCell>
                   <div className="flex min-w-0 items-center gap-3">
                     <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 p-1">
                       {product.image ? (
@@ -156,7 +161,7 @@ const ProductsTable = () => {
             ))
           ) : (
             <TableRow>
-              <TableCell className="w-full">
+              <TableCell className="col-span-5">
                 <div className="w-full py-5 text-center text-sm text-gray-400">
                   محصولی برای نمایش وجود ندارد.
                 </div>

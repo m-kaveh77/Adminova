@@ -38,28 +38,6 @@ const Users = () => {
     setLayoutType(layoutType === "TABLE" ? "GRID" : "TABLE");
   };
 
-  const validateUser = (user) => {
-    const errors = {};
-
-    if (!user.username?.trim()) {
-      errors.username = "وارد کردن نام کاربری الزامی است.";
-    }
-
-    if (!user.firstname?.trim()) {
-      errors.firstname = "وارد کردن نام الزامی است.";
-    }
-
-    if (!user.lastname?.trim()) {
-      errors.lastname = "وارد کردن نام خانوادگی الزامی است.";
-    }
-
-    if (!user.email?.trim()) {
-      errors.email = "وارد کردن ایمیل الزامی است.";
-    }
-
-    return errors;
-  };
-
   const createNewUser = () => {
     const user = {
       ...newUser,
